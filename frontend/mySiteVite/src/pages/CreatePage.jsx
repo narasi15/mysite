@@ -2,6 +2,7 @@ import { useColorModeValue } from '../components/ui/color-mode.jsx';
 import { ChakraProvider, Button, Container, Heading, VStack, Box, Input } from '@chakra-ui/react';
 import { React, useState } from 'react'
 import { create } from 'zustand';
+import { Toaster, toaster } from "../components/ui/toaster"
 
 import { useProductStore } from '../store/product.js';
 
@@ -19,7 +20,10 @@ const CreatePage = () => {
 
   const handleAddProduct = async() => {
     const{success, message} = await createProduct(newProduct)
-    
+    toaster.create({
+      title: success,
+      description: message,
+    })
     
     
     setNewProduct({name: "", price: "", image: ""});
@@ -56,6 +60,7 @@ const CreatePage = () => {
         </Box>
 
       </VStack>
+      <Toaster />
 
     </Container>
     
