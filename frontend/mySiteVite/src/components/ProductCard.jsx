@@ -42,10 +42,8 @@ const ProductCard = ({product}) => {
                     <EditIcon boxSize={5}/>
                 </Button>
 
-                <Button 
-                colorScheme="red"
-                onClick={() => handleDeleteProduct(product._id)}>
-                Delete
+                <Button>
+                    <DeleteIcon colorScheme="red" onClick={() => handleDeleteProduct(product._id)} />
                 </Button>
 
                 
