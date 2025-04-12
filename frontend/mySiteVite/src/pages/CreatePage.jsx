@@ -14,7 +14,6 @@ const CreatePage = () => {
     image: "",
   });
 
-  //const toast = useToast();
   
   const {createProduct}=useProductStore()
 

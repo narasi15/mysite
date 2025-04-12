@@ -2,10 +2,23 @@ import React from 'react'
 import { Box, HStack, Heading, Text, Button, Image } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useColorMode, useColorModeValue } from './ui/color-mode'
+import { useProductStore } from '../store/product';
+import { Toaster, toaster } from "../components/ui/toaster"
 
 const ProductCard = ({product}) => {
     const textColor = useColorModeValue("gray.600", "gray.200")
     const bg = useColorModeValue("white", "gray.800")
+
+    const {deleteProduct} = useProductStore()
+    
+     const handleDeleteProduct = async (pid) => {
+        console.log("pid:", pid)
+        const {success,message} = await deleteProduct(pid)
+        toaster.create({
+            title: success,
+            description: message,
+          })
+     }
 
   return (
     <Box
@@ -25,14 +38,15 @@ const ProductCard = ({product}) => {
                 ${product.price}
             </Text>
             <HStack spacing={5}>
-                <Button>
-                    <EditIcon boxSize={5} />
+                <Button >
+                    <EditIcon boxSize={5}/>
                 </Button>
 
-                <Button>
-                    <DeleteIcon boxSize={5} />
+                <Button 
+                colorScheme="red"
+                onClick={() => handleDeleteProduct(product._id)}>
+                Delete
                 </Button>
-                    
 
                 
             </HStack>
@@ -46,3 +60,5 @@ const ProductCard = ({product}) => {
 }
 
 export default ProductCard
+
+//

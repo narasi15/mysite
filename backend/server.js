@@ -12,15 +12,28 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 app.use(express.json()); // allows us to accept JSON data in the req.body
-app.use(cors());
-app.use(cors({ origin: "http://localhost:3000" })); 
+//app.use(cors());
+app.use(cors({ origin: "http://localhost:5173" })); 
+
 
 app.use("/api/products", productRoutes)
 
 
+const startServer = async () => {
+  try {
+    await connectDB(); // Connect to MongoDB
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+  } catch (err) {
+    console.error("❌ Failed to start server:", err.message);
+  }
+};
 
-app.listen(PORT, () => 
-{
-    connectDB();
-    console.log("Server started at http://locahost:" + PORT)}
-);
+startServer();
+
+// app.listen(PORT, () => 
+// {
+//     connectDB();
+//     console.log("Server started at http://localhost:" + PORT)}
+// );
