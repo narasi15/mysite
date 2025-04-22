@@ -56,7 +56,7 @@ const ProductCard = ({product}) => {
             </Text>
             <HStack spacing={5}>
 
-
+            
             <Dialog.Root>
                 <Dialog.Trigger asChild>
                 <Button colorScheme="blue">
@@ -105,6 +105,39 @@ const ProductCard = ({product}) => {
 
 
 
+            <Dialog.Root>
+                <Dialog.Trigger asChild>
+                    <Button>
+                        <DeleteIcon colorScheme="red" />
+                    </Button>
+                </Dialog.Trigger>
+                <Portal>
+                    <Dialog.Backdrop />
+                    <Dialog.Positioner>
+                    <Dialog.Content>
+                        <Dialog.Header>
+                        
+                        </Dialog.Header>
+                        <Dialog.Body>
+                        <p>
+                            Are you sure you want to delete this product?
+                        </p>
+                        <br></br>
+                        </Dialog.Body>
+                        <Dialog.Footer>
+                        <Dialog.ActionTrigger asChild>
+                            <Button variant="outline">No</Button>
+                        </Dialog.ActionTrigger>
+                        <Button onClick={() => handleDeleteProduct(product._id)}>Yes</Button>
+                        </Dialog.Footer>
+                        <Dialog.CloseTrigger asChild>
+                        <CloseButton size="sm" />
+                        </Dialog.CloseTrigger>
+                    </Dialog.Content>
+                    </Dialog.Positioner>
+                </Portal>
+            </Dialog.Root>
+
 
 
 
@@ -116,9 +149,7 @@ const ProductCard = ({product}) => {
             
             
 
-                <Button>
-                    <DeleteIcon colorScheme="red" onClick={() => handleDeleteProduct(product._id)} />
-                </Button>
+                
 
                 
             </HStack>
