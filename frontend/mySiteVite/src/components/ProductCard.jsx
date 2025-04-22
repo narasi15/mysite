@@ -59,13 +59,17 @@ const ProductCard = ({product}) => {
 
             
             <Dialog.Root>
+            <Tooltip content="Update product">  
                 <Dialog.Trigger asChild>
-                <Tooltip content="Update product">  
-                    <Button colorScheme="blue">
+                
+                <Button colorScheme="blue">
+                    
                         <EditIcon boxSize={5} onClick={onOpen}/>
-                    </Button>
-                </Tooltip>  
+                     
+                </Button>
+                
                 </Dialog.Trigger>
+                </Tooltip> 
                 <Portal>
                     <Dialog.Backdrop />
                     <Dialog.Positioner>
@@ -109,13 +113,17 @@ const ProductCard = ({product}) => {
 
 
             <Dialog.Root>
+            <Tooltip content="Delete product"> 
                 <Dialog.Trigger asChild>
-                <Tooltip content="Delete product">  
+                 
                     <Button>
+                    
                         <DeleteIcon colorScheme="red" />
+                    
                     </Button>
-                </Tooltip>
+                
                 </Dialog.Trigger>
+                </Tooltip>
                 <Portal>
                     <Dialog.Backdrop />
                     <Dialog.Positioner>
