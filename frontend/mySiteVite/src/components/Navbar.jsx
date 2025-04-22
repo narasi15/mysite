@@ -3,6 +3,7 @@ import { PlusSquareIcon } from "@chakra-ui/icons";
 import {Link} from 'react-router-dom'
 import { IoMoon } from 'react-icons/io5';
 import { LuSun } from 'react-icons/lu';
+import { Tooltip } from "../components/ui/tooltip"
 
 
 import React from 'react'
@@ -34,14 +35,18 @@ const Navbar = () => {
                 </Text>
                 <HStack spacing={2} alignItems={"center"}>
                     <Link to={"/create"}>
+                    <Tooltip content="Create product">
                         <Button>
                             <PlusSquareIcon fontSize={20}/>
                         </Button>
+                    </Tooltip>
                     </Link>
 
+                    <Tooltip content="Theme">
                     <Button onClick={toggleColorMode}>{colorMode === "light" ? <IoMoon /> : <LuSun size="20" />}
                         
                     </Button>
+                    </Tooltip>
 
                 </HStack>
 

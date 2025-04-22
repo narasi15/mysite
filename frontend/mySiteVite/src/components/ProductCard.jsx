@@ -5,6 +5,7 @@ import { useColorMode, useColorModeValue } from './ui/color-mode'
 import { useProductStore } from '../store/product';
 import { Toaster, toaster } from "../components/ui/toaster"
 import { Dialog, Portal, CloseButton} from "@chakra-ui/react"
+import { Tooltip } from "../components/ui/tooltip"
 
   
 
@@ -59,9 +60,11 @@ const ProductCard = ({product}) => {
             
             <Dialog.Root>
                 <Dialog.Trigger asChild>
-                <Button colorScheme="blue">
-                    <EditIcon boxSize={5} onClick={onOpen}/>
-                </Button>
+                <Tooltip content="Update product">  
+                    <Button colorScheme="blue">
+                        <EditIcon boxSize={5} onClick={onOpen}/>
+                    </Button>
+                </Tooltip>  
                 </Dialog.Trigger>
                 <Portal>
                     <Dialog.Backdrop />
@@ -107,9 +110,11 @@ const ProductCard = ({product}) => {
 
             <Dialog.Root>
                 <Dialog.Trigger asChild>
+                <Tooltip content="Delete product">  
                     <Button>
                         <DeleteIcon colorScheme="red" />
                     </Button>
+                </Tooltip>
                 </Dialog.Trigger>
                 <Portal>
                     <Dialog.Backdrop />

@@ -6,6 +6,7 @@ import { useProductStore } from '../store/product.js'
 import ProductCard from "../components/ProductCard.jsx";
 
 
+
 const HomePage = () => {
 
   const {fetchProducts, products} = useProductStore();
