@@ -7,6 +7,7 @@ import { Toaster, toaster } from "../components/ui/toaster"
 import { Dialog, Portal, CloseButton} from "@chakra-ui/react"
 import { Tooltip } from "../components/ui/tooltip"
 
+
   
 
 const ProductCard = ({product}) => {
@@ -153,16 +154,7 @@ const ProductCard = ({product}) => {
 
 
 
-
-
-
-
-
-
             
-            
-
-                
 
                 
             </HStack>
